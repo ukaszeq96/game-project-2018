@@ -22,7 +22,7 @@ public class RotatePlatforms : MonoBehaviour
         //int i = 0;
         foreach (Transform child in transform)
         {
-            child.RotateAround(planet.position, Vector3.forward, 40 * Time.deltaTime);
+            child.RotateAround(planet.position, Vector3.forward, 10 * Time.deltaTime);
             //child.RotateAround(planet.position, Vector3.forward, speeds[i] * Time.deltaTime);
             //i++;
         }
