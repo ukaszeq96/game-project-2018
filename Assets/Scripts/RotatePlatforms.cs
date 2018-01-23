@@ -25,6 +25,7 @@ public class RotatePlatforms : MonoBehaviour
             child.RotateAround(planet.position, Vector3.forward, 10 * Time.deltaTime);
             //child.RotateAround(planet.position, Vector3.forward, speeds[i] * Time.deltaTime);
             //i++;
+            transform.position= new Vector3(Mathf.PingPong(Time.time, 3), transform.position.y, transform.position.z);
         }
     }
 }

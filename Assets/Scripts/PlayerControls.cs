@@ -23,6 +23,10 @@ public class PlayerControls : MonoBehaviour
         direction.Normalize();
         float rot_z = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(0f, 0f, rot_z + 90);
+        if (Input.GetKey(KeyCode.Space))
+        {
+            print(" go up ");
+        }
     }
     void FixedUpdate()
     {
