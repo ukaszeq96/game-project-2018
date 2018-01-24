@@ -71,7 +71,9 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("PlatformTop") && !isOnPlatform)
         {
             platform = other.GetComponent<Transform>(); // get the transform of the platform the player is currently standing on
+            this.transform.parent = platform.parent.parent.transform;
             isOnPlatform = true;
+
 
         }
     }
@@ -84,6 +86,7 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("PlatformTop") && isOnPlatform)
         {
+            this.transform.parent = null;
             isOnPlatform = false;
         }
     }
