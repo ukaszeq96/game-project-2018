@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Countdown : MonoBehaviour
 {
-    [SerializeField]
-    float timeLeft;
+    public float timeLeft;
     private Text timer;
     // Use this for initialization
     void Start()
@@ -17,6 +16,8 @@ public class Countdown : MonoBehaviour
     void Update()
     {
         timeLeft -= Time.deltaTime;
+        if (timeLeft < 0)
+            timeLeft = 0;
         timer.text = "Time left: " + System.Math.Round(timeLeft,2);
     }
 }

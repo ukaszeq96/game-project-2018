@@ -1,17 +1,14 @@
 ﻿
 using UnityEngine;
 
-public class camerafollow : MonoBehaviour
+public class CameraFollow : MonoBehaviour
 {
     public Transform target;
-    public float smoothspeed = 0.125f;
+    public float smoothSpeed = 0.125f;
 
-    public
-
-    void lateupdate()
+    void LateUpdate()
     {
         transform.position = target.position;
-
     }
    
 }
