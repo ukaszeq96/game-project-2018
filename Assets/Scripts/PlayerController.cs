@@ -11,9 +11,12 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 gravityDirection;
-    
-    private bool isGrounded;
+    private Transform platform;
+    private Quaternion rotationToPlanet;
 
+    private bool isGrounded;
+    private bool isOnPlatform;
+    
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -23,10 +26,22 @@ public class PlayerController : MonoBehaviour
     {
         gravityDirection = planet.position - transform.position;
         gravityDirection.Normalize();
-        
         float rot_z = Mathf.Atan2(gravityDirection.y, gravityDirection.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(0f, 0f, rot_z + 90);
-        
+        rotationToPlanet = Quaternion.Euler(0f, 0f, rot_z + 90);
+        if (!isOnPlatform)
+        {
+            //transform.rotation = Quaternion.Lerp(transform.rotation, rotationToPlanet, Time.deltaTime * 10);
+            transform.rotation = rotationToPlanet; // if the player is not standing on a platform, rotate the player to planet
+
+        }
+        else
+        {
+           //transform.rotation = Quaternion.Lerp(transform.rotation, platform.transform.rotation, Time.deltaTime * 10);
+           transform.rotation = platform.transform.rotation; // set the player's rotation to the rotation of the platform
+        }
+
+
+
         Vector2 ver = gravityDirection * -1;
         Vector2 hor = Quaternion.Euler(0f, 0f, 90) * gravityDirection;
 
@@ -47,20 +62,29 @@ public class PlayerController : MonoBehaviour
             rb.AddForce(verInput * ver * jumpSpeed);
         }
     }
-
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Planet") && !isGrounded)
+        if (other.gameObject.CompareTag("Platform") && !isGrounded)
         {
             isGrounded = true;
+        }
+        if (other.gameObject.CompareTag("PlatformTop") && !isOnPlatform)
+        {
+            platform = other.GetComponent<Transform>(); // get the transform of the platform the player is currently standing on
+            isOnPlatform = true;
+
         }
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Planet") && isGrounded)
+        if (other.gameObject.CompareTag("Platform") && isGrounded)
         {
             isGrounded = false;
+        }
+        if (other.gameObject.CompareTag("PlatformTop") && isOnPlatform)
+        {
+            isOnPlatform = false;
         }
     }
 }
