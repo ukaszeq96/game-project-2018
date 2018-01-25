@@ -9,14 +9,17 @@ public class PlayerController : MonoBehaviour
     public float movementSpeedAir;
     public float jumpSpeed;
 
+
     private Rigidbody2D rb;
-    private Vector2 gravityDirection;
+    private Vector2 gravityDirection, ver, hor;
     private Transform platform;
-    private Quaternion rotationToPlanet;
+    //private Quaternion rotationToPlanet;
+    private RaycastHit2D raycastHit;
+    private float verInput, horInput;
 
     private bool isGrounded;
     private bool isOnPlatform;
-    
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,29 +27,30 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        gravityDirection = planet.position - transform.position;
+        verInput = Input.GetAxis("Jump");
+        horInput = Input.GetAxis("Horizontal");
+        gravityDirection = transform.position - planet.position;
         gravityDirection.Normalize();
-        float rot_z = Mathf.Atan2(gravityDirection.y, gravityDirection.x) * Mathf.Rad2Deg;
-        rotationToPlanet = Quaternion.Euler(0f, 0f, rot_z + 90);
-        if (!isOnPlatform)
+
+        if (raycastHit.collider != null)
         {
-            //transform.rotation = Quaternion.Lerp(transform.rotation, rotationToPlanet, Time.deltaTime * 10);
-            transform.rotation = rotationToPlanet; // if the player is not standing on a platform, rotate the player to planet
+                //transform.up = raycastHit.normal; // rotation is not smooth, but the horizontal movement works normally
+                transform.up = Vector2.Lerp(transform.up, raycastHit.normal, Time.deltaTime * 10); // rotation is smooth, but the horizontal movement breaks
+            ver = transform.up;
 
         }
         else
         {
-           //transform.rotation = Quaternion.Lerp(transform.rotation, platform.transform.rotation, Time.deltaTime * 10);
-           transform.rotation = platform.transform.rotation; // set the player's rotation to the rotation of the platform
+            //    transform.up = gravityDirection; // rotation is not smooth, but the horizontal movement works normally
+            transform.up = Vector2.Lerp(transform.up, gravityDirection, Time.deltaTime * 5); // rotation is smooth, but the horizontal movement breaks
+            ver = gravityDirection;
         }
-
-
-
-        Vector2 ver = gravityDirection * -1;
-        Vector2 hor = Quaternion.Euler(0f, 0f, 90) * gravityDirection;
-
-        float verInput = Input.GetAxis("Jump");
-        float horInput = Input.GetAxis("Horizontal");
+        ver = transform.up;
+        hor = Quaternion.Euler(0f, 0f, 90) * -ver;
+    }
+    void FixedUpdate()
+    {
+        raycastHit = Physics2D.Raycast(transform.position, -transform.up, 1);
 
         if (isGrounded)
         {
@@ -56,13 +60,13 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = horInput * hor * movementSpeedAir;
         }
-
         if (verInput > 0)
         {
             rb.AddForce(verInput * ver * jumpSpeed);
         }
     }
-    private void OnTriggerEnter2D(Collider2D other)
+
+    public void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Platform") && !isGrounded)
         {
@@ -70,15 +74,13 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("PlatformTop") && !isOnPlatform)
         {
-            platform = other.GetComponent<Transform>(); // get the transform of the platform the player is currently standing on
+            platform = other.gameObject.GetComponent<Transform>(); // get the transform of the platform the player is currently standing on
             this.transform.parent = platform.parent.parent.transform;
             isOnPlatform = true;
-
-
         }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    public void OnCollisionExit2D(Collision2D other)
     {
         if (other.gameObject.CompareTag("Platform") && isGrounded)
         {

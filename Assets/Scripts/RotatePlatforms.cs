@@ -17,12 +17,12 @@ public class RotatePlatforms : MonoBehaviour
         //}
     }
     // Update is called once per frame
-    void FixedUpdate()
+    void Update()
     {
         //int i = 0;
         foreach (Transform child in transform)
         {
-            child.RotateAround(planet.position, Vector3.forward, 10 * Time.fixedDeltaTime);
+            child.RotateAround(planet.position, Vector3.forward, 10 * Time.deltaTime);
             print(transform.childCount);
             //child.RotateAround(planet.position, Vector3.forward, speeds[i] * Time.deltaTime);
             //i++;
