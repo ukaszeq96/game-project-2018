@@ -23,7 +23,6 @@ public class RotatePlatforms : MonoBehaviour
         foreach (Transform child in transform)
         {
             child.RotateAround(planet.position, Vector3.forward, 10 * Time.deltaTime);
-            print(transform.childCount);
             //child.RotateAround(planet.position, Vector3.forward, speeds[i] * Time.deltaTime);
             //i++;
             //   transform.position= new Vector3(Mathf.PingPong(Time.time, 3), transform.position.y, 0 );

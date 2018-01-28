@@ -17,8 +17,8 @@ public class PlayerController : MonoBehaviour
     private RaycastHit2D raycastHit;
     private float verInput, horInput;
 
-    private bool isGrounded;
-    private bool isOnPlatform;
+    bool isGrounded;
+    bool isOnPlatform;
 
     void Start()
     {
@@ -29,29 +29,34 @@ public class PlayerController : MonoBehaviour
     {
         verInput = Input.GetAxis("Jump");
         horInput = Input.GetAxis("Horizontal");
-        gravityDirection = transform.position - planet.position;
+        gravityDirection = transform.position - planet.position; 
         gravityDirection.Normalize();
-
-        if (raycastHit.collider != null)
+        if (raycastHit.collider != null) // all objects except PlatformTop are in IgnoreRaycast, so only when ray hits a platform raycasthit.collider != null
         {
-                //transform.up = raycastHit.normal; // rotation is not smooth, but the horizontal movement works normally
-                transform.up = Vector2.Lerp(transform.up, raycastHit.normal, Time.deltaTime * 10); // rotation is smooth, but the horizontal movement breaks
-            ver = transform.up;
+            if (isGrounded)
+            {
+                transform.up = raycastHit.normal; //when on the ground, set the rotation instantly to prevent player from falling over
+            }
+            else
+                transform.up = Vector2.Lerp(transform.up, raycastHit.normal, Time.deltaTime * 3); // when in the air, rotate the player smoothly
 
         }
-        else
+        else // when raycasthit.collider == null player rotates with respect to the surface of the planet
         {
-            //    transform.up = gravityDirection; // rotation is not smooth, but the horizontal movement works normally
-            transform.up = Vector2.Lerp(transform.up, gravityDirection, Time.deltaTime * 5); // rotation is smooth, but the horizontal movement breaks
-            ver = gravityDirection;
+            if (isGrounded)
+            {
+                transform.up = gravityDirection; // when on the ground, set the rotation instantly to prevent player from falling over
+
+            }
+            else
+                transform.up = Vector2.Lerp(transform.up, gravityDirection, Time.deltaTime * 3); // when in the air, rotate the player smoothly
         }
         ver = transform.up;
         hor = Quaternion.Euler(0f, 0f, 90) * -ver;
     }
     void FixedUpdate()
     {
-        raycastHit = Physics2D.Raycast(transform.position, -transform.up, 1);
-
+        raycastHit = Physics2D.Raycast(transform.position, -transform.up, 5); // cast a ray downwards from the player and return the collider hit by the vector as well as normal of the surface that was hit
         if (isGrounded)
         {
             rb.velocity = horInput * hor * movementSpeed;
