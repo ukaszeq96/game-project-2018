@@ -11,6 +11,10 @@ public class Oxygen : MonoBehaviour
     float moveOxygenMultiplier;
     [SerializeField]
     float jumpOxygenMultiplier;
+    void OnCollisionEnter(Collision collision)
+    {
+        slider.value -= 1000;
+    }
     void Update()
     {
         if (Input.GetAxis("Horizontal") != 0)
@@ -25,4 +29,6 @@ public class Oxygen : MonoBehaviour
         if (Input.GetAxis("Jump") != 0)
             slider.value -= Time.deltaTime * jumpOxygenMultiplier;
     }
+
+    
 }
