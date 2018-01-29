@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Oxygen : MonoBehaviour
 {
-    public Slider slider;
+    public Slider oxygenSlider;
 
     private Rigidbody2D rb;
     [SerializeField]
@@ -15,23 +15,28 @@ public class Oxygen : MonoBehaviour
     {
         if (collision.gameObject.tag == "asteroid")
         {
-            slider.value -= 10;
+            oxygenSlider.value -= 10;
             //Destroy(collision.gameObject);
         }
+    }
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Worm")
+            oxygenSlider.value -= 15;
     }
     void Update()
     {
         if (Input.GetAxis("Horizontal") != 0)
         {
             if (Input.GetAxis("Jump") == 0)
-                slider.value -= Time.deltaTime * moveOxygenMultiplier;
+                oxygenSlider.value -= Time.deltaTime * moveOxygenMultiplier;
             else
-                slider.value -= Time.deltaTime * jumpOxygenMultiplier;
+                oxygenSlider.value -= Time.deltaTime * jumpOxygenMultiplier;
         }
         else
-            slider.value -= Time.deltaTime;
+            oxygenSlider.value -= Time.deltaTime;
         if (Input.GetAxis("Jump") != 0)
-            slider.value -= Time.deltaTime * jumpOxygenMultiplier;
+            oxygenSlider.value -= Time.deltaTime * jumpOxygenMultiplier;
     }
 
     

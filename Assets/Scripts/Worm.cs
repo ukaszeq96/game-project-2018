@@ -1,33 +1,4 @@
-﻿//using System.Collections;
-//using System.Collections.Generic;
-//using UnityEngine;
-
-//public class Worm : MonoBehaviour
-//{
-
-//    public float cycleTime;
-//    // Use this for initialization
-//    void Start()
-//    {
-//        InvokeRepeating("Attack", Random.value * 3, cycleTime);
-
-//    }
-
-//    // Update is called once per frame
-//    void Update()
-//    {
-//        if(transform.localPosition == Vector3.zero)
-//        transform.localPosition = Vector3.MoveTowards(transform.localPosition, Vector3.up, Time.deltaTime * 3);
-//        else transform.localPosition = Vector3.MoveTowards(transform.localPosition, Vector3.up, Time.deltaTime * 3);
-
-//    }
-
-//    void Attack()
-//    {
-
-//    }
-//}
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections;
 
 public class Worm : MonoBehaviour
@@ -39,7 +10,9 @@ public class Worm : MonoBehaviour
         Vector3 pointA = transform.localPosition;
         while (true)
         {
+            yield return new WaitForSeconds(Random.Range(2, 4));
             yield return StartCoroutine(MoveObject(transform, pointA, pointB, 1));
+            yield return new WaitForSeconds(Random.Range(2, 4));
             yield return StartCoroutine(MoveObject(transform, pointB, pointA, 1));
         }
     }

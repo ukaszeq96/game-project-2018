@@ -1193,7 +1193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2524c330bb514b4998f5d132d2245ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 185535603}
+  oxygenSlider: {fileID: 185535603}
   moveOxygenMultiplier: 2
   jumpOxygenMultiplier: 3
 --- !u!1 &293858555
@@ -2426,7 +2426,7 @@ GameObject:
   - component: {fileID: 1637301250}
   m_Layer: 2
   m_Name: Worm
-  m_TagString: Untagged
+  m_TagString: Worm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2499,7 +2499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ecb5f7e4451fae4fb0ca49783e51b7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cycleTime: 1
+  pointB: {x: 0, y: 1, z: 0}
 --- !u!61 &1637301251
 BoxCollider2D:
   m_ObjectHideFlags: 0
