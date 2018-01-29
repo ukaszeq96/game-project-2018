@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -8,14 +9,16 @@ public class PlayerController : MonoBehaviour
     public float movementSpeed;
     public float movementSpeedAir;
     public float jumpSpeed;
+    public int jetpackMax;
+    public Slider jetpackSlider;
 
 
     private Rigidbody2D rb;
     private Vector2 gravityDirection, ver, hor;
     private Transform platform;
-    //private Quaternion rotationToPlanet;
     private RaycastHit2D raycastHit;
     private float verInput, horInput;
+    private int jetpack;
 
     bool isGrounded;
     bool isOnPlatform;
@@ -23,14 +26,18 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        jetpackSlider.maxValue = jetpackMax;
+        jetpack = jetpackMax;
     }
 
     void Update()
     {
+        
         verInput = Input.GetAxis("Jump");
         horInput = Input.GetAxis("Horizontal");
-        gravityDirection = transform.position - planet.position; 
+        gravityDirection = transform.position - planet.position;
         gravityDirection.Normalize();
+        print(isOnPlatform + "," + isGrounded);
         if (raycastHit.collider != null) // all objects except PlatformTop are in IgnoreRaycast, so only when ray hits a platform raycasthit.collider != null
         {
             if (isGrounded)
@@ -53,6 +60,7 @@ public class PlayerController : MonoBehaviour
         }
         ver = transform.up;
         hor = Quaternion.Euler(0f, 0f, 90) * -ver;
+        jetpackSlider.value = jetpack;
     }
     void FixedUpdate()
     {
@@ -60,6 +68,8 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             rb.velocity = horInput * hor * movementSpeed;
+            if(jetpack<jetpackMax)
+            jetpack++;
         }
         else
         {
@@ -67,7 +77,11 @@ public class PlayerController : MonoBehaviour
         }
         if (verInput > 0)
         {
-            rb.AddForce(verInput * ver * jumpSpeed);
+            if (jetpack > 0)
+            {
+                rb.AddForce(verInput * ver * jumpSpeed);
+                jetpack--;
+            }
         }
     }
 
@@ -77,12 +91,7 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
         }
-        if (other.gameObject.CompareTag("PlatformTop") && !isOnPlatform)
-        {
-            platform = other.gameObject.GetComponent<Transform>(); // get the transform of the platform the player is currently standing on
-            this.transform.parent = platform.parent.parent.transform;
-            isOnPlatform = true;
-        }
+
     }
 
     public void OnCollisionExit2D(Collision2D other)
@@ -91,7 +100,19 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false;
         }
-        if (other.gameObject.CompareTag("PlatformTop") && isOnPlatform)
+    }
+    public void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("PlatformTop") && !isOnPlatform)
+        {
+            platform = collider.gameObject.GetComponent<Transform>(); // get the transform of the platform the player is currently standing on
+            this.transform.parent = platform.parent.parent.transform;
+            isOnPlatform = true;
+        }
+    }
+    public void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("PlatformTop") && isOnPlatform)
         {
             this.transform.parent = null;
             isOnPlatform = false;

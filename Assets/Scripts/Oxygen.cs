@@ -11,9 +11,13 @@ public class Oxygen : MonoBehaviour
     float moveOxygenMultiplier;
     [SerializeField]
     float jumpOxygenMultiplier;
-    void OnCollisionEnter(Collision collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        slider.value -= 1000;
+        if (collision.gameObject.tag == "asteroid")
+        {
+            slider.value -= 10;
+            //Destroy(collision.gameObject);
+        }
     }
     void Update()
     {
