@@ -24,6 +24,11 @@ public class Oxygen : MonoBehaviour
         if (collider.gameObject.tag == "Worm")
             oxygenSlider.value -= 15;
     }
+    void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Worm")
+            oxygenSlider.value -= 5 * Time.deltaTime;
+    }
     void Update()
     {
         if (Input.GetAxis("Horizontal") != 0)
