@@ -8,6 +8,7 @@ TagManager:
   - PlatformTop
   - asteroid
   - Worm
+  - ShipPart
   layers:
   - Default
   - TransparentFX
