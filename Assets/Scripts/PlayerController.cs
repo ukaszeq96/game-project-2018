@@ -40,7 +40,6 @@ public class PlayerController : MonoBehaviour
         horInput = Input.GetAxis("Horizontal");
         gravityDirection = transform.position - planet.position;
         gravityDirection.Normalize();
-        print(isOnPlatform + "," + isGrounded);
         if (raycastHit.collider != null) // all objects except PlatformTop are in IgnoreRaycast, so only when ray hits a platform raycasthit.collider != null
         {
             if (isGrounded)
