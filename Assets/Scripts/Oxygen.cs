@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Oxygen : MonoBehaviour
 {
     public Slider oxygenSlider;
-
+    
     private Rigidbody2D rb;
     [SerializeField]
     float moveOxygenMultiplier;
@@ -17,6 +17,10 @@ public class Oxygen : MonoBehaviour
         {
             oxygenSlider.value -= 10;
             //Destroy(collision.gameObject);
+        }
+        if(collision.gameObject.name == "Planet") // change to ship when it is done
+        {
+            oxygenSlider.value = oxygenSlider.maxValue;
         }
     }
     void OnTriggerEnter2D(Collider2D collider)

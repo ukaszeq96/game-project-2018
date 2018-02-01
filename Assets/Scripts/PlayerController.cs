@@ -88,6 +88,14 @@ public class PlayerController : MonoBehaviour
                 jetpack--;
             }
         }
+        if (horInput < 0)
+        {
+            transform.localScale = new Vector3(-0.5f, 0.5f, 1);
+        }
+        else if (horInput > 0)
+        {
+            transform.localScale = new Vector3(0.5f, 0.5f, 1);
+        }
     }
 
     void LateUpdate()

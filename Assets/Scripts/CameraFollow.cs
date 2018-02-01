@@ -8,8 +8,8 @@ public class CameraFollow : MonoBehaviour
 
     void LateUpdate()
     {
-        transform.position = Vector3.Lerp(transform.position, target.transform.position, Time.deltaTime);
-        transform.rotation = Quaternion.Lerp(transform.rotation, target.rotation, Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, target.transform.position, Time.deltaTime * smooth);
+        transform.rotation = Quaternion.Euler(0, 0, Mathf.MoveTowardsAngle(transform.rotation.eulerAngles.z,target.transform.rotation.eulerAngles.z,Time.deltaTime * 10));
     }
 
 }
