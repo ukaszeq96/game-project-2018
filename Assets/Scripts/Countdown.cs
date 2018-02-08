@@ -5,11 +5,13 @@ using UnityEngine.UI;
 public class Countdown : MonoBehaviour
 {
     public float timeLeft;
+    public float timeMax;
     private Text timer;
     // Use this for initialization
     void Start()
     {
         timer = GetComponent<Text>();
+        timeLeft = timeMax;
     }
 
     // Update is called once per frame
