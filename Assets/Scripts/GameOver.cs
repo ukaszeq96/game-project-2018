@@ -5,15 +5,12 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour {
     public Slider oxygen;
-    private Countdown countdown;
+    private int shipPartCount;
 
-	void Start () {
-        countdown = GameObject.Find("Timer").GetComponent<Countdown>();
-    }
 
     // Update is called once per frame
     void Update() {
-        if (oxygen.value <= 0 || countdown.timeLeft <= 0)
+        if (oxygen.value <= 0 || Countdown.timeLeft <= 0 || PlayerController.shipPartCount == 3)
         {
             SceneManager.LoadSceneAsync("GameOver", LoadSceneMode.Single);
         }

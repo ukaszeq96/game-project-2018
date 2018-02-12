@@ -4,8 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Countdown : MonoBehaviour
 {
-    public float timeLeft;
-    public float timeMax;
+    public static float timeLeft;
+    public static float timeMax = 100;
     private Text timer;
     // Use this for initialization
     void Start()

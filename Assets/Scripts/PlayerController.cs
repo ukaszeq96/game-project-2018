@@ -21,13 +21,14 @@ public class PlayerController : MonoBehaviour
     private float verInput, horInput;
     private int jetpack;
 
-    private int shipPartCount;
+    public static int shipPartCount;
     private int addToShipPartCount;
     private bool isGrounded;
     private bool isOnPlatform;
     
     void Start()
     {
+        shipPartCount = 0;
         rb = GetComponent<Rigidbody2D>();
         jetpackSlider.maxValue = jetpackMax;
         jetpack = jetpackMax;
