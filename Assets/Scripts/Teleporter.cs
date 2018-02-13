@@ -10,10 +10,12 @@ public class Teleporter : MonoBehaviour
     float disabletimer = 0;
     public GameObject cam;
     CameraFollow cameraScript;
+    SpriteRenderer sr;
     // Update is called once per frame
     void Start()
     {
          cameraScript = cam.GetComponent<CameraFollow>();
+         sr = GetComponent<SpriteRenderer>();
     }
     void Update()
     {
@@ -22,11 +24,13 @@ public class Teleporter : MonoBehaviour
             disabletimer -= Time.deltaTime;
             cameraScript.smoothRotation = 30;
             cameraScript.smoothMovement = 3;
+            sr.color = Color.grey;
         }
-        if(disabletimer == 0)
+        else
         {
-            cameraScript.smoothRotation = 10;
+            cameraScript.smoothRotation = 20;
             cameraScript.smoothMovement = 1;
+            sr.color = Color.blue;
         }
     }
 
@@ -41,10 +45,11 @@ public class Teleporter : MonoBehaviour
                 if (tp.pairingcode == pairingcode && tp != this)
                 {
 
-                    tp.disabletimer = 2;
+                    tp.disabletimer = disabletimer = 3;
                     Vector3 position = tp.gameObject.transform.position;
                     //position.y += 2;
                     other.gameObject.transform.position = position;
+                    other.gameObject.transform.rotation = tp.gameObject.transform.rotation;
                 }
             }
         }
