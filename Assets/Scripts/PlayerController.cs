@@ -104,46 +104,58 @@ public class PlayerController : MonoBehaviour
         shipPartCount += addToShipPartCount;
         addToShipPartCount = 0;
         spc.UpdateShipPartCount(shipPartCount);
+        print(isGrounded);
     }
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Platform") && !isGrounded)
+        if (other.gameObject.CompareTag("Platform")  || other.gameObject.CompareTag("Planet") && !isGrounded)
         {
+            if (other.gameObject.CompareTag("Platform"))
+            {
+                platform = other.gameObject.GetComponent<Transform>();
+                this.transform.parent = platform.parent.transform;
+            }
             isGrounded = true;
+
         }
 
     }
 
     void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Platform") && isGrounded)
+        if (other.gameObject.CompareTag("Platform") || other.gameObject.CompareTag("Planet") && isGrounded)
         {
+            if (other.gameObject.CompareTag("Platform"))
+            {
+                this.transform.parent = null;
+
+            }
             isGrounded = false;
         }
     }
-    
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("PlatformTop") && !isOnPlatform)
-        {
-            platform = other.gameObject.GetComponent<Transform>(); // get the transform of the platform the player is currently standing on
-            this.transform.parent = platform.parent.parent.transform;
-            isOnPlatform = true;
-        }
-        else if (other.gameObject.CompareTag("ShipPart"))
+        //if (other.gameObject.CompareTag("PlatformTop") && !isOnPlatform)
+        //{
+        //    platform = other.gameObject.GetComponent<Transform>(); // get the transform of the platform the player is currently standing on
+        //    this.transform.parent = platform.parent.parent.transform;
+        //    isOnPlatform = true;
+        //}
+        if (other.gameObject.CompareTag("ShipPart"))
         {
             addToShipPartCount = 1;
             Destroy(other.gameObject);
         }
     }
-    
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("PlatformTop") && isOnPlatform)
-        {
-            this.transform.parent = null;
-            isOnPlatform = false;
-        }
-    }
+
+    //void OnTriggerExit2D(Collider2D other)
+    //{
+    //    if (other.gameObject.CompareTag("PlatformTop") && isOnPlatform)
+    //    {
+    //        this.transform.parent = null;
+    //        isOnPlatform = false;
+    //    }
+    //}
 }
