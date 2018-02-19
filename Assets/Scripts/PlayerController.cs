@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private RaycastHit2D raycastHit;
     private float verInput, horInput;
     private int jetpack;
+    private Animator animator;
 
     public static int shipPartCount;
     private int addToShipPartCount;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         shipPartCount = 0;
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         jetpackSlider.maxValue = jetpackMax;
         jetpack = jetpackMax;
     }
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour
         horInput = Input.GetAxis("Horizontal");
         gravityDirection = transform.position - planet.position;
         gravityDirection.Normalize();
+        
         if (raycastHit.collider != null) // all objects except PlatformTop are in IgnoreRaycast, so only when ray hits a platform raycasthit.collider != null
         {
             if (isGrounded)
@@ -68,6 +71,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        print(horInput);
         raycastHit =
             Physics2D.Raycast(transform.position, -transform.up,
                 5); // cast a ray downwards from the player and return the collider hit by the vector as well as normal of the surface that was hit
@@ -81,21 +85,28 @@ public class PlayerController : MonoBehaviour
         {
             rb.velocity = horInput * hor * movementSpeedAir;
         }
-        if (verInput > 0)
-        {
-            if (jetpack > 0)
-            {
+        if (verInput > 0 && jetpack > 0)
+        {    
+                animator.SetTrigger("jump");
                 rb.AddForce(verInput * ver * jumpSpeed);
                 jetpack--;
-            }
+        }
+        if (horInput != 0)
+        {
+            animator.SetTrigger("run");
+        }
+        else
+        {
+            animator.SetTrigger("idle");
         }
         if (horInput < 0)
         {
-            transform.localScale = new Vector3(-0.5f, 0.5f, 1);
+            transform.localScale = new Vector3(-1f, 1f, 1);
+
         }
         else if (horInput > 0)
         {
-            transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            transform.localScale = new Vector3(1f, 1f, 1);
         }
     }
 
@@ -104,7 +115,6 @@ public class PlayerController : MonoBehaviour
         shipPartCount += addToShipPartCount;
         addToShipPartCount = 0;
         spc.UpdateShipPartCount(shipPartCount);
-        print(isGrounded);
     }
 
     void OnCollisionEnter2D(Collision2D other)
