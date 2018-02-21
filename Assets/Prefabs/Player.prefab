@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4532948354958912}
   - component: {fileID: 114820246525337420}
   - component: {fileID: 137360375248767490}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Astronaut3_Jetpack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4334183685167922}
   - component: {fileID: 114108738734306384}
   - component: {fileID: 137625325305002316}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Astronaut2_left-hand_upper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54,7 +54,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4203875710135992}
   - component: {fileID: 114326510640281746}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: L-leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -70,7 +70,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4755955693422308}
   - component: {fileID: 114653433107694236}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: L-hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -87,7 +87,7 @@ GameObject:
   - component: {fileID: 4108673413475012}
   - component: {fileID: 114751541859013054}
   - component: {fileID: 137665727085647992}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Astronaut2_right-hand_upper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -103,7 +103,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4889636095709296}
   - component: {fileID: 114707229448887526}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Back
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -119,7 +119,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4564652702872806}
   - component: {fileID: 114439603030466208}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 4719433124262508}
   - component: {fileID: 114608864551195302}
   - component: {fileID: 137600290365401634}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Astronaut3_RightL_whole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -151,7 +151,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4648342572458874}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: IKs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -168,7 +168,7 @@ GameObject:
   - component: {fileID: 4315619901380140}
   - component: {fileID: 114164888389207860}
   - component: {fileID: 137262821859847802}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Astronaut2_right-hand_lower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -184,7 +184,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4236336175783868}
   - component: {fileID: 114434655500964986}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: R-leg-upper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -200,7 +200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4934540996389026}
   - component: {fileID: 114667267590065554}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: R-hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 4765183523335968}
   - component: {fileID: 114253011692381590}
   - component: {fileID: 137698522325049868}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Astronaut2_head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -233,7 +233,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4141630795846606}
   - component: {fileID: 114248364530142280}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: L-leg-lower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -249,7 +249,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4448093029107934}
   - component: {fileID: 114656686204991634}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: L-leg-upper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4451180099142348}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -281,7 +281,7 @@ GameObject:
   - component: {fileID: 4301390520151648}
   - component: {fileID: 114817594074094340}
   - component: {fileID: 137069500289702320}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Torso
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -297,7 +297,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4347026609080046}
   - component: {fileID: 114035620090730472}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: R-hand-upper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   - component: {fileID: 4737609910511414}
   - component: {fileID: 114227244875449766}
   - component: {fileID: 137049341416679692}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Astronaut3_LeftL_whole
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -330,7 +330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4360548509156462}
   - component: {fileID: 114846191619130022}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: L-hand-upper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -346,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4552504903779368}
   - component: {fileID: 114342800963459034}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: L-hand-lower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -361,7 +361,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4538204126488028}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Bones
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4736127553862862}
   - component: {fileID: 114141027141574820}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: R-leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +393,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4418340674724924}
   - component: {fileID: 114311948215178462}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: R-hand-lower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -409,7 +409,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4752368255594018}
   - component: {fileID: 114590407756599194}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: R-leg-lower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 4043937705027448}
   - component: {fileID: 114538809732616862}
   - component: {fileID: 137692128929002094}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Astronaut2_left-hand_lower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -442,7 +442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4837852958664716}
   - component: {fileID: 114924778716170396}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Hip
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -464,7 +464,7 @@ GameObject:
   - component: {fileID: 114215568763513292}
   - component: {fileID: 58956519818211030}
   - component: {fileID: 61009886707563686}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -610,7 +610,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1945820630545840}
-  m_LocalRotation: {x: 0, y: 0, z: 0.59413993, w: 0.8043617}
+  m_LocalRotation: {x: 0, y: 0, z: 0.59414, w: 0.80436164}
   m_LocalPosition: {x: 0.26856413, y: 0.00000002980232, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -729,8 +729,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1970841849537982}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.35, y: 8.96, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.3500061, y: 8.960007, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4451180099142348}
@@ -934,7 +934,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 5595419c3b09de54eb70ce513ebdb0cd, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 1
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -951,7 +951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.26856413
+  m_Length: 0.26856416
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4418340674724924}
   m_AttachedIK: {fileID: 114667267590065554}
@@ -968,8 +968,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planet: {fileID: 0}
   spc: {fileID: 0}
-  movementSpeed: 10
-  movementSpeedAir: 8
+  movementSpeed: 5
+  movementSpeedAir: 4
   jumpSpeed: 1000
   jetpackMax: 50
   jetpackSlider: {fileID: 0}
@@ -1028,7 +1028,7 @@ MonoBehaviour:
       defaultLocalRotation: {x: 0, y: 0, z: -0.0063542924, w: -0.99997985}
     m_Weight: 1
     m_RestoreDefaultPose: 1
-    targetPosition: {x: -0.26099998, y: 7.0480003, z: 0.0026855469}
+    targetPosition: {x: -0.26100612, y: 7.048007, z: 0.0026855469}
     flip: 1
 --- !u!114 &114164888389207860
 MonoBehaviour:
@@ -1175,7 +1175,7 @@ MonoBehaviour:
       defaultLocalRotation: {x: 0, y: 0, z: 0.0009835891, w: 0.9999996}
     m_Weight: 1
     m_RestoreDefaultPose: 1
-    targetPosition: {x: -0.065, y: 7.032, z: 0.0026855469}
+    targetPosition: {x: -0.06500611, y: 7.0320067, z: 0.0026855469}
     flip: 1
 --- !u!114 &114342800963459034
 MonoBehaviour:
@@ -1218,7 +1218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.2155898
+  m_Length: 0.21558984
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4752368255594018}
   m_AttachedIK: {fileID: 114141027141574820}
@@ -1330,7 +1330,7 @@ MonoBehaviour:
       defaultLocalRotation: {x: 0, y: 0, z: 0.3798648, w: 0.9250421}
     m_Weight: 1
     m_RestoreDefaultPose: 1
-    targetPosition: {x: 0.26000002, y: 7.5299997, z: 0.0026855469}
+    targetPosition: {x: 0.2599939, y: 7.5300064, z: 0.0026855469}
     flip: 0
 --- !u!114 &114656686204991634
 MonoBehaviour:
@@ -1344,7 +1344,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.20577797
+  m_Length: 0.20577802
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4141630795846606}
   m_AttachedIK: {fileID: 114326510640281746}
@@ -1379,11 +1379,11 @@ MonoBehaviour:
     - m_Bone: {fileID: 0}
       m_BoneTransform: {fileID: 4418340674724924}
       solverPosition: {x: 0, y: 0, z: 0}
-      solverRotation: {x: 0, y: 0, z: 0.59413993, w: 0.8043617}
+      solverRotation: {x: 0, y: 0, z: 0.59414, w: 0.80436164}
       defaultLocalRotation: {x: 0, y: 0, z: -0.41645187, w: -0.9091578}
     m_Weight: 1
     m_RestoreDefaultPose: 1
-    targetPosition: {x: -0.18899998, y: 7.532, z: 0.0026855469}
+    targetPosition: {x: -0.18900609, y: 7.5320067, z: 0.0026855469}
     flip: 0
 --- !u!114 &114707229448887526
 MonoBehaviour:
@@ -1474,7 +1474,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.29461098
+  m_Length: 0.29461092
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4552504903779368}
   m_AttachedIK: {fileID: 114653433107694236}

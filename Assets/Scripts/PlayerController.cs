@@ -71,10 +71,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        print(horInput);
-        raycastHit =
-            Physics2D.Raycast(transform.position, -transform.up,
-                5); // cast a ray downwards from the player and return the collider hit by the vector as well as normal of the surface that was hit
+        raycastHit = Physics2D.Raycast(transform.position, -transform.up, 5); // cast a ray downwards from the player and return the collider hit by the vector as well as normal of the surface that was hit
         if (isGrounded)
         {
             rb.velocity = horInput * hor * movementSpeed;
@@ -83,31 +80,27 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            animator.SetTrigger("jump");
             rb.velocity = horInput * hor * movementSpeedAir;
         }
         if (verInput > 0 && jetpack > 0)
         {    
-                animator.SetTrigger("jump");
                 rb.AddForce(verInput * ver * jumpSpeed);
                 jetpack--;
         }
-        if (horInput != 0)
-        {
-            animator.SetTrigger("run");
-        }
-        else
-        {
-            animator.SetTrigger("idle");
-        }
+
         if (horInput < 0)
         {
             transform.localScale = new Vector3(-1f, 1f, 1);
+            animator.SetTrigger("run");
 
         }
         else if (horInput > 0)
         {
             transform.localScale = new Vector3(1f, 1f, 1);
+            animator.SetTrigger("run");
         }
+        else animator.SetTrigger("idle");
     }
 
     void LateUpdate()
@@ -119,7 +112,7 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Platform")  || other.gameObject.CompareTag("Planet") && !isGrounded)
+        if (other.gameObject.CompareTag("Platform")  || other.gameObject.CompareTag("Planet"))
         {
             if (other.gameObject.CompareTag("Platform"))
             {
@@ -134,7 +127,7 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Platform") || other.gameObject.CompareTag("Planet") && isGrounded)
+        if (other.gameObject.CompareTag("Platform") || other.gameObject.CompareTag("Planet"))
         {
             if (other.gameObject.CompareTag("Platform"))
             {
