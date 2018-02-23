@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,7 +14,6 @@ public class PlayerController : MonoBehaviour
     public int jetpackMax;
     public Slider jetpackSlider;
 
-
     private Rigidbody2D rb;
     private Vector2 gravityDirection, ver, hor;
     private Transform platform;
@@ -27,6 +27,8 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private bool isOnPlatform;
     
+    private float maxFalloutAngle = 5.0f;
+    
     void Start()
     {
         shipPartCount = 0;
@@ -38,7 +40,6 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        
         verInput = Input.GetAxis("Jump");
         horInput = Input.GetAxis("Horizontal");
         gravityDirection = transform.position - planet.position;
@@ -48,7 +49,12 @@ public class PlayerController : MonoBehaviour
         {
             if (isGrounded)
             {
-                transform.up = raycastHit.normal; //when on the ground, set the rotation instantly to prevent player from falling over
+                // when on the ground, set (fix) the player transform rotation to prevent player from falling over
+                // rotation is fixed only when falling at an angle higher than maxFalloutAngle
+                if (Vector2.Angle(raycastHit.normal, transform.up) > maxFalloutAngle)
+                {
+                    transform.up = raycastHit.normal;
+                }
             }
             else
                 transform.up = Vector2.Lerp(transform.up, raycastHit.normal, Time.deltaTime * 3); // when in the air, rotate the player smoothly
@@ -58,8 +64,12 @@ public class PlayerController : MonoBehaviour
         {
             if (isGrounded)
             {
-                transform.up = gravityDirection; // when on the ground, set the rotation instantly to prevent player from falling over
-
+                // when on the ground, set (fix) the player transform rotation to prevent player from falling over
+                // rotation is fixed only when falling at an angle higher than maxFalloutAngle
+                if (Vector2.Angle(gravityDirection, transform.up) > maxFalloutAngle)
+                {
+                    transform.up = gravityDirection;
+                }
             }
             else
                 transform.up = Vector2.Lerp(transform.up, gravityDirection, Time.deltaTime * 3); // when in the air, rotate the player smoothly
