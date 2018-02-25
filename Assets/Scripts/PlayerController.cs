@@ -27,7 +27,7 @@ public class PlayerController : MonoBehaviour
     private bool isGrounded;
     private bool isOnPlatform;
     
-    private float maxFalloutAngle = 5.0f;
+    private float maxFalloutAngle = 2.5f;
     
     void Start()
     {
