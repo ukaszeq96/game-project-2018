@@ -101,13 +101,13 @@ public class PlayerController : MonoBehaviour
 
         if (horInput < 0)
         {
-            transform.localScale = new Vector3(-1f, 1f, 1);
+            transform.localScale = new Vector3(transform.localScale.x < 0 ? transform.localScale.x : -1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
             animator.SetTrigger("run");
 
         }
         else if (horInput > 0)
         {
-            transform.localScale = new Vector3(1f, 1f, 1);
+            transform.localScale = new Vector3(transform.localScale.x > 0 ? transform.localScale.x : -1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
             animator.SetTrigger("run");
         }
         else animator.SetTrigger("idle");
