@@ -7,7 +7,7 @@ public class CameraFollow : MonoBehaviour
     public float smoothRotation;
     public float smoothMovement;
     
-    private float yOffset = 4.5f;
+    private float yOffset = 3.5f;
 
     void LateUpdate()
     {
