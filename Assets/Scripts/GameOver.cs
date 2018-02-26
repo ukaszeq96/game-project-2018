@@ -5,12 +5,12 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour {
     public Slider oxygen;
-    private int shipPartCount;
+    public GameObject spaceship;
 
 
     // Update is called once per frame
     void Update() {
-        if (oxygen.value <= 0 || Countdown.timeLeft <= 0 || PlayerController.shipPartCount == 3)
+        if (oxygen.value <= 0 || Countdown.timeLeft <= 0 || Spaceship.partsDelivered == Spaceship.totalParts)
         {
             SceneManager.LoadSceneAsync("GameOver", LoadSceneMode.Single);
         }

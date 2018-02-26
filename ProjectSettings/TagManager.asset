@@ -10,6 +10,7 @@ TagManager:
   - Worm
   - ShipPart
   - Planet
+  - Spaceship
   layers:
   - Default
   - TransparentFX

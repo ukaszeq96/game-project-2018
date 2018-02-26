@@ -9,8 +9,8 @@ public class DisplayScore : MonoBehaviour {
     public Text gameOverText;
 	// Use this for initialization
 	void Start () {
-        shipPartCount = PlayerController.shipPartCount;
-        if(shipPartCount == 3)
+        //shipPartCount = PlayerController.shipPartCount;
+        if(Spaceship.partsDelivered == Spaceship.totalParts)
         {
             levelTime.SetActive(true);
             gameOverText.text = "Victory!";

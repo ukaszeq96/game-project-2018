@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private int jetpack;
     private Animator animator;
 
-    public static int shipPartCount;
+    public int shipPartCount;
     private int addToShipPartCount;
     private bool isGrounded;
     private bool isOnPlatform;
