@@ -6,6 +6,8 @@ public class RotatePlatforms : MonoBehaviour
 {
     [SerializeField]
     Transform planet;
+    [SerializeField]
+    int rotationSpeed;
 
     //private List<int> speeds = new List<int>();
     // Use this for initialization
@@ -22,7 +24,7 @@ public class RotatePlatforms : MonoBehaviour
         //int i = 0;
         foreach (Transform child in transform)
         {
-            child.RotateAround(planet.position, Vector3.forward, 10 * Time.deltaTime);
+            child.RotateAround(planet.position, Vector3.forward, rotationSpeed * Time.deltaTime);
             //child.RotateAround(planet.position, Vector3.forward, speeds[i] * Time.deltaTime);
             //i++;
             //   transform.position= new Vector3(Mathf.PingPong(Time.time, 3), transform.position.y, 0 );

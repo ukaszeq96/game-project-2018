@@ -5,16 +5,23 @@ using UnityEngine.UI;
 
 public class ShipPartCountController : MonoBehaviour
 {
-	private Text shipCountText;
+	private Text carriedPartsText;
+    private Text deliveredPartsText;
 	
 	void Start()
 	{
-		shipCountText = GetComponent<Text>();
-	}
+		carriedPartsText = GetComponent<Text>();
+        deliveredPartsText = GetComponent<Text>();
+        deliveredPartsText.text = "Delivered parts: " + Spaceship.partsDelivered + "/" + Spaceship.totalParts;
+    }
 
-	public void UpdateShipPartCount(int count)
+    public void UpdateShipPartCount(int count)
 	{
-		shipCountText.text = "Ship parts: " + count;
+		carriedPartsText.text = "Carried parts: " + count;
 	}
+    public void UpdateDeliveredPartCount()
+    {
+        deliveredPartsText.text = "Delivered parts: " + Spaceship.partsDelivered + "/" + Spaceship.totalParts;
+    }
 
 }

@@ -21,13 +21,6 @@ public class Oxygen : MonoBehaviour
         }
 
     }
-    void OnCollisionStay2D(Collision2D collision)
-    {
-        if (collision.gameObject.name == "Planet") // change to ship when it is done
-        {
-            oxygenSlider.value += refillOxygenMultiplier * Time.deltaTime;
-        }
-    }
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Worm")
@@ -38,6 +31,10 @@ public class Oxygen : MonoBehaviour
         if (collider.gameObject.tag == "Worm")
         {
             oxygenSlider.value -= (wormDamage / 3) * Time.deltaTime;
+        }
+        else if (collider.gameObject.name == "Spaceship")
+        {
+            oxygenSlider.value += refillOxygenMultiplier * Time.deltaTime;
         }
 
     }
