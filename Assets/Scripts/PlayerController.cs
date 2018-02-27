@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     private RaycastHit2D raycastHit;
     private float verInput, horInput;
     private int jetpack;
+    private Animator animator;
 
     public static int shipPartCount;
     private int addToShipPartCount;
@@ -30,6 +31,7 @@ public class PlayerController : MonoBehaviour
     {
         shipPartCount = 0;
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
         jetpackSlider.maxValue = jetpackMax;
         jetpack = jetpackMax;
     }
@@ -41,6 +43,7 @@ public class PlayerController : MonoBehaviour
         horInput = Input.GetAxis("Horizontal");
         gravityDirection = transform.position - planet.position;
         gravityDirection.Normalize();
+        
         if (raycastHit.collider != null) // all objects except PlatformTop are in IgnoreRaycast, so only when ray hits a platform raycasthit.collider != null
         {
             if (isGrounded)
@@ -68,35 +71,38 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        raycastHit =
-            Physics2D.Raycast(transform.position, -transform.up,
-                5); // cast a ray downwards from the player and return the collider hit by the vector as well as normal of the surface that was hit
+        raycastHit = Physics2D.Raycast(transform.position, -transform.up, 5); // cast a ray downwards from the player and return the collider hit by the vector as well as normal of the surface that was hit
         if (isGrounded)
         {
+            
             rb.velocity = horInput * hor * movementSpeed;
             if (jetpack < jetpackMax)
                 jetpack++;
         }
         else
         {
+            animator.SetTrigger("jump");
             rb.velocity = horInput * hor * movementSpeedAir;
         }
-        if (verInput > 0)
+        if (verInput > 0 && jetpack > 0)
         {
-            if (jetpack > 0)
-            {
+                animator.SetTrigger("jetpack");
                 rb.AddForce(verInput * ver * jumpSpeed);
                 jetpack--;
-            }
         }
+
         if (horInput < 0)
         {
-            transform.localScale = new Vector3(-0.5f, 0.5f, 1);
+            transform.localScale = new Vector3(-1f, 1f, 1);
+            animator.SetTrigger("run");
+
         }
         else if (horInput > 0)
         {
-            transform.localScale = new Vector3(0.5f, 0.5f, 1);
+            transform.localScale = new Vector3(1f, 1f, 1);
+            animator.SetTrigger("run");
         }
+        else animator.SetTrigger("idle");
     }
 
     void LateUpdate()
@@ -108,42 +114,53 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Platform") && !isGrounded)
+        if (other.gameObject.CompareTag("Platform")  || other.gameObject.CompareTag("Planet"))
         {
+            if (other.gameObject.CompareTag("Platform"))
+            {
+                platform = other.gameObject.GetComponent<Transform>();
+                this.transform.parent = platform.parent.transform;
+            }
             isGrounded = true;
+
         }
 
     }
 
     void OnCollisionExit2D(Collision2D other)
     {
-        if (other.gameObject.CompareTag("Platform") && isGrounded)
+        if (other.gameObject.CompareTag("Platform") || other.gameObject.CompareTag("Planet"))
         {
+            if (other.gameObject.CompareTag("Platform"))
+            {
+                this.transform.parent = null;
+
+            }
             isGrounded = false;
         }
     }
-    
+
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("PlatformTop") && !isOnPlatform)
-        {
-            platform = other.gameObject.GetComponent<Transform>(); // get the transform of the platform the player is currently standing on
-            this.transform.parent = platform.parent.parent.transform;
-            isOnPlatform = true;
-        }
-        else if (other.gameObject.CompareTag("ShipPart"))
+        //if (other.gameObject.CompareTag("PlatformTop") && !isOnPlatform)
+        //{
+        //    platform = other.gameObject.GetComponent<Transform>(); // get the transform of the platform the player is currently standing on
+        //    this.transform.parent = platform.parent.parent.transform;
+        //    isOnPlatform = true;
+        //}
+        if (other.gameObject.CompareTag("ShipPart"))
         {
             addToShipPartCount = 1;
             Destroy(other.gameObject);
         }
     }
-    
-    void OnTriggerExit2D(Collider2D other)
-    {
-        if (other.gameObject.CompareTag("PlatformTop") && isOnPlatform)
-        {
-            this.transform.parent = null;
-            isOnPlatform = false;
-        }
-    }
+
+    //void OnTriggerExit2D(Collider2D other)
+    //{
+    //    if (other.gameObject.CompareTag("PlatformTop") && isOnPlatform)
+    //    {
+    //        this.transform.parent = null;
+    //        isOnPlatform = false;
+    //    }
+    //}
 }

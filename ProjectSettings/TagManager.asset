@@ -9,6 +9,7 @@ TagManager:
   - asteroid
   - Worm
   - ShipPart
+  - Planet
   layers:
   - Default
   - TransparentFX

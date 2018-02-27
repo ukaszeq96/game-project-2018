@@ -3,7 +3,7 @@ using System.Collections;
 
 public class Worm : MonoBehaviour
 {
-    public Vector3 pointB = Vector3.up;
+    public Vector3 pointB;
 
     IEnumerator Start()
     {

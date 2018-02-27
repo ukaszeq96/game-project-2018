@@ -7,32 +7,41 @@ public class Oxygen : MonoBehaviour
     public Slider oxygenSlider;
     
     private Rigidbody2D rb;
-    [SerializeField]
-    float moveOxygenMultiplier;
-    [SerializeField]
-    float jumpOxygenMultiplier;
+    public float moveOxygenMultiplier;
+    public float jumpOxygenMultiplier;
+    public float refillOxygenMultiplier;
+    public float wormDamage;
+    public float asteroidDamage;
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "asteroid")
         {
-            oxygenSlider.value -= 10;
+            oxygenSlider.value -= asteroidDamage;
             //Destroy(collision.gameObject);
         }
-        if(collision.gameObject.name == "Planet") // change to ship when it is done
+
+    }
+    void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.name == "Planet") // change to ship when it is done
         {
-            oxygenSlider.value = oxygenSlider.maxValue;
+            oxygenSlider.value += refillOxygenMultiplier * Time.deltaTime;
         }
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Worm")
-            oxygenSlider.value -= 15;
+            oxygenSlider.value -= wormDamage;
     }
     void OnTriggerStay2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Worm")
-            oxygenSlider.value -= 5 * Time.deltaTime;
+        {
+            oxygenSlider.value -= (wormDamage / 3) * Time.deltaTime;
+        }
+
     }
+
     void Update()
     {
         if (Input.GetAxis("Horizontal") != 0)

@@ -364,6 +364,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelTime: {fileID: 1335140341}
+  gameOverText: {fileID: 1938753278}
 --- !u!1 &1036872930
 GameObject:
   m_ObjectHideFlags: 0
