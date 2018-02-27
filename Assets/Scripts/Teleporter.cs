@@ -22,14 +22,14 @@ public class Teleporter : MonoBehaviour
         if (disabletimer > 0)
         {
             disabletimer -= Time.deltaTime;
-            cameraScript.smoothRotation = 30;
-            cameraScript.smoothMovement = 3;
+//            cameraScript.smoothRotation = 30;
+//            cameraScript.smoothMovement = 3;
             sr.color = Color.grey;
         }
         else
         {
-            cameraScript.smoothRotation = 20;
-            cameraScript.smoothMovement = 1;
+//            cameraScript.smoothRotation = 20;
+//            cameraScript.smoothMovement = 1;
             sr.color = Color.blue;
         }
     }
