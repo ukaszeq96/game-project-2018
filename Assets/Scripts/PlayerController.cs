@@ -9,9 +9,11 @@ public class PlayerController : MonoBehaviour
     public Transform planet;
     public ShipPartCountController spc;
     public float movementSpeed;
+    public float movementSpeedJetpack;
     public float movementSpeedAir;
     public float jumpSpeed;
     public int jetpackMax;
+    public int jetpackRegenerateSlowdownFactor;
     public float maxFalloutAngle;
     public Slider jetpackSlider;
 
@@ -65,8 +67,13 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             rb.velocity = horInput * hor * movementSpeed;
-            if (jetpack < jetpackMax)
+            bool regenerateJetpack = jetpackRegenerateSlowdownFactor <= 0 || Time.frameCount % jetpackRegenerateSlowdownFactor == 0;
+            if (jetpack < jetpackMax && regenerateJetpack)
                 jetpack++;
+        }
+        else if(verInput > 0 && jetpack > 0)
+        {
+            rb.velocity = horInput * hor * movementSpeedJetpack;
         }
         else
         {
