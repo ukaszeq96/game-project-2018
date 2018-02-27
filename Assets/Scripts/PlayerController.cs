@@ -25,9 +25,10 @@ public class PlayerController : MonoBehaviour
     public int shipPartCount;
     private int addToShipPartCount;
     private bool isGrounded;
-    private bool isOnPlatform;
     
     private float maxFalloutAngle = 2.5f;
+
+    private int frameCount = 0;
     
     void Start()
     {
@@ -40,6 +41,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        frameCount += 1;
         verInput = Input.GetAxis("Jump");
         horInput = Input.GetAxis("Horizontal");
         gravityDirection = transform.position - planet.position;
@@ -82,6 +84,15 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         raycastHit = Physics2D.Raycast(transform.position, -transform.up, 5); // cast a ray downwards from the player and return the collider hit by the vector as well as normal of the surface that was hit
+//        if (frameCount % 15 == 0)
+//        {
+//            bool isNull = (raycastHit.collider == null);
+//            print("Raycast collider null? " + isNull);
+//            if (raycastHit.collider == null)
+//            {
+////                print("Raycast hit: " + raycastHit);
+//            }
+//        }
         if (isGrounded)
         {
             rb.velocity = horInput * hor * movementSpeed;
@@ -90,7 +101,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            animator.SetTrigger("jump");
+//            animator.SetTrigger("jump");
             rb.velocity = horInput * hor * movementSpeedAir;
         }
         if (verInput > 0 && jetpack > 0)
@@ -102,13 +113,19 @@ public class PlayerController : MonoBehaviour
         if (horInput < 0)
         {
             transform.localScale = new Vector3(transform.localScale.x < 0 ? transform.localScale.x : -1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
-            animator.SetTrigger("run");
+            if (isGrounded)
+            {
+                animator.SetTrigger("run");
+            }
 
         }
         else if (horInput > 0)
         {
             transform.localScale = new Vector3(transform.localScale.x > 0 ? transform.localScale.x : -1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
-            animator.SetTrigger("run");
+            if (isGrounded)
+            {
+                animator.SetTrigger("run");
+            }
         }
         else animator.SetTrigger("idle");
     }
@@ -120,7 +137,7 @@ public class PlayerController : MonoBehaviour
         spc.UpdateShipPartCount(shipPartCount);
     }
 
-    void OnCollisionEnter2D(Collision2D other)
+    void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Platform")  || other.gameObject.CompareTag("Planet"))
         {
@@ -130,12 +147,16 @@ public class PlayerController : MonoBehaviour
                 this.transform.parent = platform.parent.transform;
             }
             isGrounded = true;
-
         }
-
+        
+        if (other.gameObject.CompareTag("ShipPart"))
+        {
+            addToShipPartCount = 1;
+            Destroy(other.gameObject);
+        }
     }
 
-    void OnCollisionExit2D(Collision2D other)
+    void OnTriggerExit2D(Collider2D other)
     {
         if (other.gameObject.CompareTag("Platform") || other.gameObject.CompareTag("Planet"))
         {
@@ -147,28 +168,4 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
         }
     }
-
-    void OnTriggerEnter2D(Collider2D other)
-    {
-        //if (other.gameObject.CompareTag("PlatformTop") && !isOnPlatform)
-        //{
-        //    platform = other.gameObject.GetComponent<Transform>(); // get the transform of the platform the player is currently standing on
-        //    this.transform.parent = platform.parent.parent.transform;
-        //    isOnPlatform = true;
-        //}
-        if (other.gameObject.CompareTag("ShipPart"))
-        {
-            addToShipPartCount = 1;
-            Destroy(other.gameObject);
-        }
-    }
-
-    //void OnTriggerExit2D(Collider2D other)
-    //{
-    //    if (other.gameObject.CompareTag("PlatformTop") && isOnPlatform)
-    //    {
-    //        this.transform.parent = null;
-    //        isOnPlatform = false;
-    //    }
-    //}
 }
