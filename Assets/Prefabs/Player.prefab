@@ -582,7 +582,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1656049076242420}
-  m_LocalRotation: {x: 0, y: 0, z: -0.9779551, w: -0.20881534}
+  m_LocalRotation: {x: 0, y: 0, z: -0.9779552, w: -0.20881476}
   m_LocalPosition: {x: 0.34986228, y: 0.12308858, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -610,7 +610,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1945820630545840}
-  m_LocalRotation: {x: 0, y: 0, z: 0.5941427, w: 0.8043597}
+  m_LocalRotation: {x: 0, y: 0, z: 0.5941401, w: 0.8043616}
   m_LocalPosition: {x: 0.26856413, y: 0.00000002980232, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -686,7 +686,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1876484253255344}
-  m_LocalRotation: {x: 0, y: 0, z: 0.43073398, w: 0.902479}
+  m_LocalRotation: {x: 0, y: 0, z: 0.43073386, w: 0.902479}
   m_LocalPosition: {x: 0.29461098, y: 0.000000014901161, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -730,7 +730,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1970841849537982}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.28, y: 41.23, z: 0}
+  m_LocalPosition: {x: -0.44, y: 32.5, z: 0}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.4999999}
   m_Children:
   - {fileID: 4451180099142348}
@@ -951,7 +951,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.26856503
+  m_Length: 0.26856372
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4418340674724924}
   m_AttachedIK: {fileID: 114667267590065554}
@@ -968,9 +968,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   planet: {fileID: 0}
   spc: {fileID: 0}
-  movementSpeed: 5
-  movementSpeedJetpack: 4
-  movementSpeedAir: 0
+  movementSpeed: 10
+  movementSpeedJetpack: 8
+  movementSpeedAir: 3
   jumpSpeed: 500
   jetpackMax: 150
   jetpackRegenerateSlowdownFactor: 2
@@ -1068,9 +1068,9 @@ MonoBehaviour:
   oxygenSlider: {fileID: 0}
   moveOxygenMultiplier: 2
   jumpOxygenMultiplier: 3
-  refillOxygenMultiplier: 0
-  wormDamage: 0
-  asteroidDamage: 0
+  refillOxygenMultiplier: 15
+  wormDamage: 15
+  asteroidDamage: 10
 --- !u!114 &114227244875449766
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1222,7 +1222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.21558921
+  m_Length: 0.2155905
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4752368255594018}
   m_AttachedIK: {fileID: 114141027141574820}
@@ -1401,7 +1401,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.42797273
+  m_Length: 0.42797405
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4564652702872806}
   m_AttachedIK: {fileID: 0}
@@ -1494,7 +1494,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.09059298
+  m_Length: 0.09059429
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4889636095709296}
   m_AttachedIK: {fileID: 0}

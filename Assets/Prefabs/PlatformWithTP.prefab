@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4588843791420534}
   - component: {fileID: 212888707919193182}
-  - component: {fileID: 58044865027177140}
+  - component: {fileID: 61900736213154136}
   m_Layer: 2
   m_Name: ShipPart
   m_TagString: ShipPart
@@ -133,7 +133,7 @@ Transform:
   m_GameObject: {fileID: 1035179920781518}
   m_LocalRotation: {x: -0, y: -0, z: -0.57593304, w: 0.81749696}
   m_LocalPosition: {x: 2.1, y: 3.72, z: -2}
-  m_LocalScale: {x: 0.10000005, y: 0.10000005, z: 1}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children: []
   m_Father: {fileID: 4144072891163878}
   m_RootOrder: 2
@@ -158,21 +158,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 0
---- !u!58 &58044865027177140
-CircleCollider2D:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1035179920781518}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0000076293945, y: 0.000015258789}
-  serializedVersion: 2
-  m_Radius: 8.000002
 --- !u!58 &58328475852105698
 CircleCollider2D:
   m_ObjectHideFlags: 1
@@ -288,6 +273,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 16.6, y: 0.01}
   m_EdgeRadius: 0
+--- !u!61 &61900736213154136
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1035179920781518}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.54, y: 2.61}
+    newSize: {x: 16, y: 16}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 1.5}
+  m_EdgeRadius: 0
 --- !u!66 &66272292042623484
 CompositeCollider2D:
   m_ObjectHideFlags: 1
@@ -352,7 +362,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pairingcode: 0
-  cam: {fileID: 0}
 --- !u!212 &212362638942526992
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -475,8 +484,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9bd333686c7139342892802f23a13cad, type: 3}
-  m_Color: {r: 1, g: 1, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 4177b039b0df7144f808d35de106c37d, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
