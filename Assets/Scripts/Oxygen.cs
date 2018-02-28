@@ -12,6 +12,7 @@ public class Oxygen : MonoBehaviour
     public float refillOxygenMultiplier;
     public float wormDamage;
     public float asteroidDamage;
+    public AudioSource refill;
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "asteroid")
@@ -20,11 +21,16 @@ public class Oxygen : MonoBehaviour
             //Destroy(collision.gameObject);
         }
 
+
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Worm")
             oxygenSlider.value -= wormDamage;
+        if (collider.gameObject.name == "Spaceship")
+        {
+            refill.Play();
+        }
     }
     void OnTriggerStay2D(Collider2D collider)
     {
@@ -37,6 +43,13 @@ public class Oxygen : MonoBehaviour
             oxygenSlider.value += refillOxygenMultiplier * Time.deltaTime;
         }
 
+    }
+    void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.gameObject.name == "Spaceship")
+        {
+            refill.Stop();
+        }
     }
 
     void Update()
