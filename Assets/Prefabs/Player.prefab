@@ -976,6 +976,7 @@ MonoBehaviour:
   jetpackRegenerateSlowdownFactor: 2
   maxFalloutAngle: 3
   jetpackSlider: {fileID: 0}
+  jumpSound: {fileID: 0}
   shipPartCount: 0
 --- !u!114 &114108738734306384
 MonoBehaviour:
@@ -1071,6 +1072,7 @@ MonoBehaviour:
   refillOxygenMultiplier: 15
   wormDamage: 15
   asteroidDamage: 10
+  refill: {fileID: 0}
 --- !u!114 &114227244875449766
 MonoBehaviour:
   m_ObjectHideFlags: 1
