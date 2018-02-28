@@ -13,11 +13,11 @@ public class AsteroidSpawn : MonoBehaviour {
 	void Update () {
         if (Random.Range(0,800)<10) //every 10 in 1100 an asteroid is going to be generated
         {
-            Vector3 pos = new Vector3(this.transform.position.x + Random.Range(-30f,30f),
-                                        this.transform.position.y,
-                                        this.transform.position.z);
+            Vector3 pos = new Vector3(transform.position.x + Random.Range(-30f,30f),
+                                        transform.position.y + Random.Range(-30f, 30f),
+                                        transform.position.z);
 
             Instantiate(asteroidobj, pos, asteroidobj.transform.rotation);
         }
-	}
+    }
 }

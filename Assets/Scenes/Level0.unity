@@ -379,6 +379,48 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &275562508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 275562510}
+  - component: {fileID: 275562509}
+  m_Layer: 0
+  m_Name: AsteroidSpawnerRight
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &275562509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 275562508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3073eb2dac0ce7743829b2ac4f7219fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroidobj: {fileID: 1952137793773234, guid: 7c77328e99515cf48bcebf17a1d27f6c,
+    type: 2}
+--- !u!4 &275562510
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 275562508}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 100, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &444932354 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1970841849537982, guid: cf56274756d1edd4cbd7bf40b85c9603,
@@ -506,7 +548,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4934349709573962, guid: 15f0cec80291d494cac3ec11d0d5bbd3, type: 2}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 114998638239773654, guid: 15f0cec80291d494cac3ec11d0d5bbd3,
         type: 2}
@@ -529,6 +571,48 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 15f0cec80291d494cac3ec11d0d5bbd3, type: 2}
   m_IsPrefabParent: 0
+--- !u!1 &720699838
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 720699840}
+  - component: {fileID: 720699839}
+  m_Layer: 0
+  m_Name: AsteroidSpawnerBottom
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &720699839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 720699838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3073eb2dac0ce7743829b2ac4f7219fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroidobj: {fileID: 1952137793773234, guid: 7c77328e99515cf48bcebf17a1d27f6c,
+    type: 2}
+--- !u!4 &720699840
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 720699838}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -100, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &744321456
 GameObject:
   m_ObjectHideFlags: 0
@@ -918,6 +1002,48 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1072886062}
+--- !u!1 &1165686685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1165686687}
+  - component: {fileID: 1165686686}
+  m_Layer: 0
+  m_Name: AsteroidSpawnerLeft
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1165686686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1165686685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3073eb2dac0ce7743829b2ac4f7219fe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  asteroidobj: {fileID: 1952137793773234, guid: 7c77328e99515cf48bcebf17a1d27f6c,
+    type: 2}
+--- !u!4 &1165686687
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1165686685}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -100, y: 0, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1198535579
 Prefab:
   m_ObjectHideFlags: 0
@@ -955,7 +1081,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4665282909092838, guid: cf56274756d1edd4cbd7bf40b85c9603, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 137698522325049868, guid: cf56274756d1edd4cbd7bf40b85c9603,
         type: 2}
@@ -1076,6 +1202,16 @@ Prefab:
       propertyPath: refillOxygenMultiplier
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 114215568763513292, guid: cf56274756d1edd4cbd7bf40b85c9603,
+        type: 2}
+      propertyPath: asteroidDamage
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114215568763513292, guid: cf56274756d1edd4cbd7bf40b85c9603,
+        type: 2}
+      propertyPath: wormDamage
+      value: 15
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf56274756d1edd4cbd7bf40b85c9603, type: 2}
   m_IsPrefabParent: 0
@@ -1141,7 +1277,7 @@ GameObject:
   - component: {fileID: 1349051140}
   - component: {fileID: 1349051141}
   m_Layer: 0
-  m_Name: AsteroidSpawner
+  m_Name: AsteroidSpawnerTop
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1154,11 +1290,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1349051136}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2, y: 45.4, z: 1}
+  m_LocalPosition: {x: 0, y: 100, z: 1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1349051141
 MonoBehaviour:
@@ -1816,7 +1952,7 @@ Transform:
   - {fileID: 2007534851}
   - {fileID: 1722384641}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1962666132
 GameObject:
@@ -2370,7 +2506,7 @@ RectTransform:
   - {fileID: 480485769}
   - {fileID: 1778705644}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}

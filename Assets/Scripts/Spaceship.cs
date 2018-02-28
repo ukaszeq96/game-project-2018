@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Spaceship : MonoBehaviour {
-    public static int partsDelivered = 0;
+    public static int partsDelivered;
     public static int totalParts;
     public GameObject player;
     public ShipPartCountController spc;
     void Awake()
     {
+        partsDelivered = 0;
         totalParts = GameObject.FindGameObjectsWithTag("ShipPart").Length;
 
     }
