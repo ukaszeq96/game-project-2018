@@ -8,13 +8,13 @@ public class Teleporter : MonoBehaviour
     // Use this for initialization
     public int pairingcode; // it's the same for a given pair of teleporters
     float disabletimer = 0;
-    public GameObject cam;
-    CameraFollow cameraScript;
+    //public GameObject cam;
+    //CameraFollow cameraScript;
     SpriteRenderer sr;
     // Update is called once per frame
     void Start()
     {
-         cameraScript = cam.GetComponent<CameraFollow>();
+         //cameraScript = cam.GetComponent<CameraFollow>();
          sr = GetComponent<SpriteRenderer>();
     }
     void Update()

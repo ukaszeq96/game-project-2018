@@ -7,7 +7,7 @@ public class WaitForInput : MonoBehaviour {
     GameObject anyKeyPrompt;
      void Start()
     {
-        anyKeyPrompt = GameObject.Find("PressAnyKeyPrompt");
+        anyKeyPrompt = GameObject.Find("IntroPanel");
         anyKeyPrompt.SetActive(true);
         Time.timeScale = 0;
     }
