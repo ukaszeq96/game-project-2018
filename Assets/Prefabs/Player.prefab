@@ -971,8 +971,8 @@ MonoBehaviour:
   movementSpeed: 10
   movementSpeedJetpack: 8
   movementSpeedAir: 3
-  jumpSpeed: 500
-  jetpackMax: 150
+  jumpSpeed: 900
+  jetpackMax: 100
   jetpackRegenerateSlowdownFactor: 2
   maxFalloutAngle: 3
   jetpackSlider: {fileID: 0}

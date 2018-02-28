@@ -9,6 +9,6 @@ public class GetLevelTime : MonoBehaviour {
 	void Start () {
         float levelTime = Countdown.timeMax - Countdown.timeLeft;
         displayedTime = GetComponent<Text>();
-        displayedTime.text = displayedTime.text + " " + levelTime + " s";
+        displayedTime.text = displayedTime.text + " " + levelTime + " seconds";
 	}
 }
