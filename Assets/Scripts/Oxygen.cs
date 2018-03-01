@@ -31,13 +31,13 @@ public class Oxygen : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Asteroid")
+        if (collision.gameObject.CompareTag("Asteroid"))
             oxygenSlider.value -= asteroidDamage;
 
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "Worm")
+        if (collider.gameObject.CompareTag("Worm"))
             oxygenSlider.value -= wormDamage;
         if (collider.gameObject.name == "Spaceship")
             refill.Play();
@@ -45,7 +45,7 @@ public class Oxygen : MonoBehaviour
     
     void OnTriggerStay2D(Collider2D collider)
     {
-        if (collider.gameObject.tag == "Worm")
+        if (collider.gameObject.CompareTag("Worm"))
             oxygenSlider.value -= (wormDamage / 3) * Time.deltaTime;
         else if (collider.gameObject.name == "Spaceship")
             oxygenSlider.value += refillOxygenMultiplier * Time.deltaTime;
