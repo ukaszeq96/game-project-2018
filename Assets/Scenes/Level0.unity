@@ -1206,6 +1206,11 @@ Transform:
   m_Father: {fileID: 1930410019}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &650786664 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1540466561458622, guid: fc4b9dfe975d6cf4bbda9a55640a05ee,
+    type: 2}
+  m_PrefabInternal: {fileID: 16700299}
 --- !u!1 &759213360
 GameObject:
   m_ObjectHideFlags: 0
@@ -3634,7 +3639,7 @@ Prefab:
         type: 2}
       propertyPath: spaceship
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 650786664}
     - target: {fileID: 114262434255496274, guid: 813016c0ca011a6459e88dc112bc6dcd,
         type: 2}
       propertyPath: deathSound
