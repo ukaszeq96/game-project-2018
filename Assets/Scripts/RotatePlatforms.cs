@@ -4,31 +4,22 @@ using UnityEngine;
 
 public class RotatePlatforms : MonoBehaviour
 {
-    [SerializeField]
-    Transform planet;
-    [SerializeField]
-    int rotationSpeed;
-
-    //private List<int> speeds = new List<int>();
-    // Use this for initialization
-    void Start()
+    public enum Direction
     {
-        //foreach (Transform child in transform)
-        //{
-        //    speeds.Add(Random.Range(0, 20));
-        //}
+        Left = 1,
+        Right = -1
     }
-    // Update is called once per frame
+    
+    public  Transform planet;
+    public float rotationSpeed;
+    public Direction direction;
+
     void Update()
     {
-        //int i = 0;
+        int directionSign = (int) direction;
         foreach (Transform child in transform)
         {
-            child.RotateAround(planet.position, Vector3.forward, rotationSpeed * Time.deltaTime);
-            //child.RotateAround(planet.position, Vector3.forward, speeds[i] * Time.deltaTime);
-            //i++;
-            //   transform.position= new Vector3(Mathf.PingPong(Time.time, 3), transform.position.y, 0 );
-           // transform.Translate(transform.forward * Mathf.Cos(Time.time) * Time.deltaTime);
+            child.RotateAround(planet.position, directionSign * Vector3.forward, rotationSpeed * Time.deltaTime);
         }
     }
 }
