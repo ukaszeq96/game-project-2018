@@ -9,12 +9,14 @@ public class ChangeBackground : MonoBehaviour
     public Sprite[] sprites;
     public float[] intervals;
 
+    private SpriteRenderer spriteRenderer;
     private int index;
     private float lastUpdate;
 
     void Start()
     {
-        GetComponent<SpriteRenderer>().sprite = sprites[index];
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer.sprite = sprites[index];
     }
 
     void Update()
@@ -28,7 +30,7 @@ public class ChangeBackground : MonoBehaviour
             else
                 index += 1;
 
-            GetComponent<SpriteRenderer>().sprite = sprites[index];
+            spriteRenderer.sprite = sprites[index];
             lastUpdate = currentTime;
         }
     }
