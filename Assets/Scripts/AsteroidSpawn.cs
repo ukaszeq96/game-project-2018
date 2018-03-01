@@ -17,7 +17,7 @@ public class AsteroidSpawn : MonoBehaviour {
                                         transform.position.y + Random.Range(-30f, 30f),
                                         transform.position.z);
 
-            Instantiate(asteroidobj, pos, asteroidobj.transform.rotation);
+            Instantiate(asteroidobj, pos, transform.rotation);
         }
     }
 }
