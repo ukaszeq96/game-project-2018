@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FPSLimiter : MonoBehaviour {
+public class FPSLimiter : MonoBehaviour
+{
+
+	public int FPSLimit;
 
 	void Awake()
 	{
 		QualitySettings.vSyncCount = 0;
-		Application.targetFrameRate = 60;
+		Application.targetFrameRate = FPSLimit;
 	}
 	
 }
