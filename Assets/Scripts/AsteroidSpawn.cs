@@ -16,8 +16,8 @@ public class AsteroidSpawn : MonoBehaviour {
             Vector3 pos = new Vector3(transform.position.x + Random.Range(-30f,30f),
                                         transform.position.y + Random.Range(-30f, 30f),
                                         transform.position.z);
-
-            Instantiate(asteroidobj, pos, transform.rotation);
+            if(GameObject.FindGameObjectsWithTag("asteroid").Length <20)
+                Instantiate(asteroidobj, pos, transform.rotation);
         }
     }
 }
