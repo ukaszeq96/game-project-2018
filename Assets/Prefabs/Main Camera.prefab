@@ -101,7 +101,7 @@ MonoBehaviour:
   yOffset: 0
   triggerRotationAngle: 10
   targetRotationAngle: 3
-  smoothRotation: 5
+  smoothRotation: 15
   smoothMovement: 2
 --- !u!124 &124628902596522032
 Behaviour:

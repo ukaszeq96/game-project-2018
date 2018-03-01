@@ -1,69 +1,55 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class Teleporter : MonoBehaviour
 {
 
-    // Use this for initialization
-    public int pairingcode; // it's the same for a given pair of teleporters
-    float disabletimer = 0;
-    //public GameObject cam;
-    //CameraFollow cameraScript;
-    SpriteRenderer sr;
-    // Update is called once per frame
+    public int pairingCode; // it's the same for a given pair of teleporters
+    public float teleportOffset;
+    public float disableTime;
+    public float rotateSpeed;
+    
+    [NonSerialized]
+    public float disableTimer;
+
+    private SpriteRenderer spriteRenderer;
+    private Teleporter[] teleporters;
+    private Teleporter targetTeleport;
+
     void Start()
     {
-         //cameraScript = cam.GetComponent<CameraFollow>();
-         sr = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        teleporters = FindObjectsOfType<Teleporter>();
     }
     void Update()
     {
-        if (disabletimer > 0)
+        transform.Rotate(Time.deltaTime * rotateSpeed * Vector3.forward);
+        
+        if (disableTimer > 0)
         {
-            disabletimer -= Time.deltaTime;
-//            cameraScript.smoothRotation = 30;
-//            cameraScript.smoothMovement = 3;
-            sr.color = Color.grey;
+            disableTimer -= Time.deltaTime;
+            spriteRenderer.color = Color.grey;
         }
         else
-        {
-//            cameraScript.smoothRotation = 20;
-//            cameraScript.smoothMovement = 1;
-            sr.color = Color.blue;
-        }
+            spriteRenderer.color = Color.blue;
     }
-
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.tag == "Player" && disabletimer <= 0)
+        if (other.gameObject.CompareTag("Player") && disableTimer <= 0)
         {
-
-            foreach (Teleporter tp in FindObjectsOfType<Teleporter>())
+            foreach (Teleporter otherTeleport in teleporters)
             {
-                if (tp.pairingcode == pairingcode && tp != this)
+                if (otherTeleport.pairingCode == pairingCode && otherTeleport != this)
                 {
-
-                    tp.disabletimer = disabletimer = 3;
-                    Vector3 position = tp.gameObject.transform.position;
-                    //position.y += 2;
-                    other.gameObject.transform.position = position;
-                    other.gameObject.transform.rotation = tp.gameObject.transform.rotation;
+                    otherTeleport.disableTimer = disableTimer = disableTime;
+                    
+                    other.gameObject.transform.position = otherTeleport.gameObject.transform.position + (otherTeleport.gameObject.transform.up * teleportOffset);
+                    other.gameObject.transform.rotation = otherTeleport.gameObject.transform.rotation;
                 }
             }
         }
     }
-    /*
-        public GameObject objtotp;
-        public Transform tpLoc;
-
-        private void OnTriggerStay(Collider other)
-        {
-            if (other.gameObject.tag == "player")
-            {
-                objtotp.transform.position = tpLoc.transform.position;
-            }
-        }*/
-
 }
