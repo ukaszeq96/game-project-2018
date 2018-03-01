@@ -13,45 +13,7 @@ public class Oxygen : MonoBehaviour
     public float wormDamage;
     public float asteroidDamage;
     public AudioSource refill;
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "asteroid")
-        {
-            oxygenSlider.value -= asteroidDamage;
-            //Destroy(collision.gameObject);
-        }
-
-
-    }
-    void OnTriggerEnter2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag == "Worm")
-            oxygenSlider.value -= wormDamage;
-        if (collider.gameObject.name == "Spaceship")
-        {
-            refill.Play();
-        }
-    }
-    void OnTriggerStay2D(Collider2D collider)
-    {
-        if (collider.gameObject.tag == "Worm")
-        {
-            oxygenSlider.value -= (wormDamage / 3) * Time.deltaTime;
-        }
-        else if (collider.gameObject.name == "Spaceship")
-        {
-            oxygenSlider.value += refillOxygenMultiplier * Time.deltaTime;
-        }
-
-    }
-    void OnTriggerExit2D(Collider2D collider)
-    {
-        if (collider.gameObject.name == "Spaceship")
-        {
-            refill.Stop();
-        }
-    }
-
+    
     void Update()
     {
         if (Input.GetAxis("Horizontal") != 0)
@@ -66,6 +28,27 @@ public class Oxygen : MonoBehaviour
         if (Input.GetAxis("Jump") != 0)
             oxygenSlider.value -= Time.deltaTime * jumpOxygenMultiplier;
     }
+    
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Asteroid")
+            oxygenSlider.value -= asteroidDamage;
 
+    }
+    void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Worm")
+            oxygenSlider.value -= wormDamage;
+        if (collider.gameObject.name == "Spaceship")
+            refill.Play();
+    }
+    
+    void OnTriggerStay2D(Collider2D collider)
+    {
+        if (collider.gameObject.tag == "Worm")
+            oxygenSlider.value -= (wormDamage / 3) * Time.deltaTime;
+        else if (collider.gameObject.name == "Spaceship")
+            oxygenSlider.value += refillOxygenMultiplier * Time.deltaTime;
+    }
     
 }

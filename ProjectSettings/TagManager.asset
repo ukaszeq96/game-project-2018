@@ -6,7 +6,7 @@ TagManager:
   tags:
   - Platform
   - PlatformTop
-  - asteroid
+  - Asteroid
   - Worm
   - ShipPart
   - Planet
@@ -15,7 +15,6 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
   - Water
   - UI
   - 
@@ -47,4 +46,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Front of player
+    uniqueID: 1306811669
     locked: 0
