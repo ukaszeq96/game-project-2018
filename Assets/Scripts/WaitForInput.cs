@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class WaitForInput : MonoBehaviour {
+    public GameObject pauseScreen;
     GameObject anyKeyPrompt;
      void Start()
     {
@@ -13,7 +14,8 @@ public class WaitForInput : MonoBehaviour {
     }
     void Update()
     {
-        if(Time.timeScale == 0 && Input.anyKeyDown)
+        
+        if(Time.timeScale == 0 && Input.anyKeyDown && pauseScreen.activeSelf == false)
         {
             Time.timeScale = 1;
             anyKeyPrompt.SetActive(false);
