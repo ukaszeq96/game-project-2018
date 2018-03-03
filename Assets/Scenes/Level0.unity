@@ -786,13 +786,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 442711415}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: abb20030d5cb2ba4491588f2513eb759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   planet: {fileID: 2146621045}
-  rotationSpeed: 0.7
+  rotationSpeed: 0.4
   direction: 1
 --- !u!4 &459028704 stripped
 Transform:
@@ -1624,6 +1624,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 631833701}
+  - component: {fileID: 631833702}
   m_Layer: 0
   m_Name: Orbit3
   m_TagString: Untagged
@@ -1645,6 +1646,20 @@ Transform:
   m_Father: {fileID: 1930410019}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &631833702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 631833700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb20030d5cb2ba4491588f2513eb759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planet: {fileID: 2146621045}
+  rotationSpeed: 0.8
+  direction: 1
 --- !u!1 &650786664 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1540466561458622, guid: fc4b9dfe975d6cf4bbda9a55640a05ee,
@@ -3854,6 +3869,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1917480924}
+  - component: {fileID: 1917480925}
   m_Layer: 0
   m_Name: Orbit2
   m_TagString: Untagged
@@ -3889,6 +3905,20 @@ Transform:
   m_Father: {fileID: 1930410019}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1917480925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1917480923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abb20030d5cb2ba4491588f2513eb759, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planet: {fileID: 2146621045}
+  rotationSpeed: 0.8
+  direction: 1
 --- !u!1 &1930410017
 GameObject:
   m_ObjectHideFlags: 0
