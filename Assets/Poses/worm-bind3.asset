@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae0543fe805424df99fe08ce744cbe49, type: 3}
+  m_Name: worm-bind3
+  m_EditorClassIdentifier: 
+  m_PoseEntries:
+  - path: Bones (1)/base
+    localPosition: {x: -0.009558678, y: -0.7048607, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+    localScale: {x: 2, y: 2, z: 1}
+  - path: Bones (1)/base/2
+    localPosition: {x: 0.4401006, y: -0.000000029802322, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.0028687357, w: -0.9999959}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Bones (1)/base/2/3
+    localPosition: {x: 0.7829018, y: -3.947207e-10, z: 0}
+    localRotation: {x: 0, y: 0, z: -0.0015275114, w: 0.99999887}
+    localScale: {x: 1, y: 1, z: 1}
+  - path: Bones (1)/base/2/3/Head
+    localPosition: {x: 0.71111834, y: 4.282441e-11, z: 0}
+    localRotation: {x: 0, y: 0, z: 0.031262495, w: 0.99951124}
+    localScale: {x: 1, y: 1, z: 1}
