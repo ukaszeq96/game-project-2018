@@ -16,7 +16,6 @@ public class PlayerController : MonoBehaviour
     //public int jetpackRegenerateSlowdownFactor;
     public float maxFalloutAngle;
     public Slider jetpackSlider;
-    public AudioSource jumpSound;
     public AudioSource jetpackSound;
 
     private Rigidbody2D rb;
@@ -71,44 +70,58 @@ public class PlayerController : MonoBehaviour
             rb.velocity = horInput * hor * movementSpeed;
             //bool regenerateJetpack = jetpackRegenerateSlowdownFactor <= 0 || Time.frameCount % jetpackRegenerateSlowdownFactor == 0;
             if (jetpack < jetpackMax)
-                jetpack++;
+                jetpack += 1;
         }
-        else if(verInput > 0 && jetpack > 0)
-        {
+        else if (verInput > 0 && jetpack > 0)
             rb.velocity = horInput * hor * movementSpeedJetpack;
-        }
         else
-        {
             rb.velocity = horInput * hor * movementSpeedAir;
-        }
         
         if (verInput > 0 && jetpack > 0)
         {
             if (!jetpackSound.isPlaying)
                 jetpackSound.Play();
+            
             rb.AddForce(verInput * ver * jumpSpeed);
-            jetpack--;
+            jetpack -= 1;
         }
-        else if (jetpackSound.isPlaying)
-            jetpackSound.Stop();
-
-        bool isJumping = animator.GetCurrentAnimatorStateInfo(0).IsName("jump");
-        bool isInTransition = animator.IsInTransition(0);
-        if (isGrounded && verInput > 0 && !isJumping && !isInTransition)
+        else
         {
-            animator.SetTrigger("jump");
-            jumpSound.Play();
+            if (jetpackSound.isPlaying)
+                jetpackSound.Stop();
         }
+        
+        bool isInTransition = animator.IsInTransition(0);
+        bool isRunning = animator.GetCurrentAnimatorStateInfo(0).IsName("run");
+        bool isJetpacking = animator.GetCurrentAnimatorStateInfo(0).IsName("jetpack");
+        bool isIdling = animator.GetCurrentAnimatorStateInfo(0).IsName("idle");
+
+        if (verInput > 0 && jetpack > 0)
+        {
+            if (!isJetpacking && !isInTransition)
+                animator.SetTrigger("jetpack");
+        }
+        else if (verInput > 0 && !isGrounded)
+        {
+            if (!isIdling && !isInTransition)
+                animator.SetTrigger("idle");
+        }
+        else if (horInput != 0 && isGrounded)
+        {
+            if (!isRunning && !isInTransition)
+                animator.SetTrigger("run");
+        }
+        else
+        {
+            if (!isIdling && !isInTransition)
+                animator.SetTrigger("idle");
+        }
+
         if (horInput < 0)
             transform.localScale = new Vector3(transform.localScale.x < 0 ? transform.localScale.x : -1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
         
         else if (horInput > 0)
             transform.localScale = new Vector3(transform.localScale.x > 0 ? transform.localScale.x : -1 * transform.localScale.x, transform.localScale.y, transform.localScale.z);
-
-        if (horInput != 0 && isGrounded)
-            animator.SetTrigger("run");
-        else
-            animator.SetTrigger("idle");
     }
 
     void LateUpdate()
