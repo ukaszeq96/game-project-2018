@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     public float maxFalloutAngle;
     public Slider jetpackSlider;
     public AudioSource jumpSound;
+    public AudioSource jetpackSound;
 
     private Rigidbody2D rb;
     private Vector2 gravityDirection, ver, hor;
@@ -83,9 +84,13 @@ public class PlayerController : MonoBehaviour
         
         if (verInput > 0 && jetpack > 0)
         {
-                rb.AddForce(verInput * ver * jumpSpeed);
-                jetpack--;
+            if (!jetpackSound.isPlaying)
+                jetpackSound.Play();
+            rb.AddForce(verInput * ver * jumpSpeed);
+            jetpack--;
         }
+        else if (jetpackSound.isPlaying)
+            jetpackSound.Stop();
 
         bool isJumping = animator.GetCurrentAnimatorStateInfo(0).IsName("jump");
         bool isInTransition = animator.IsInTransition(0);
