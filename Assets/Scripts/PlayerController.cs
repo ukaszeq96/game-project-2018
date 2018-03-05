@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public float movementSpeedAir;
     public float jumpSpeed;
     public int jetpackMax;
-    public int jetpackRegenerateSlowdownFactor;
+    //public int jetpackRegenerateSlowdownFactor;
     public float maxFalloutAngle;
     public Slider jetpackSlider;
     public AudioSource jumpSound;
@@ -68,8 +68,8 @@ public class PlayerController : MonoBehaviour
         if (isGrounded)
         {
             rb.velocity = horInput * hor * movementSpeed;
-            bool regenerateJetpack = jetpackRegenerateSlowdownFactor <= 0 || Time.frameCount % jetpackRegenerateSlowdownFactor == 0;
-            if (jetpack < jetpackMax && regenerateJetpack)
+            //bool regenerateJetpack = jetpackRegenerateSlowdownFactor <= 0 || Time.frameCount % jetpackRegenerateSlowdownFactor == 0;
+            if (jetpack < jetpackMax)
                 jetpack++;
         }
         else if(verInput > 0 && jetpack > 0)

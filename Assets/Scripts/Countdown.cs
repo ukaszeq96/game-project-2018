@@ -5,7 +5,7 @@ using UnityEngine.UI;
 public class Countdown : MonoBehaviour
 {
     public static float timeLeft;
-    public static float timeMax = 100;
+    public static float timeMax = 180;
     private Text timer;
     // Use this for initialization
     void Start()
