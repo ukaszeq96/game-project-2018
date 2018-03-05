@@ -79,11 +79,15 @@ public class PlayerController : MonoBehaviour
         
         if (verInput > 0 && jetpack > 0)
         {
-            if (!jetpackSound.isPlaying)
-                jetpackSound.Play();
+            if (!isGrounded || jetpack>(jetpackMax * 0.1f))
+            {
+                if (!jetpackSound.isPlaying)
+                    jetpackSound.Play();
             
-            rb.AddForce(verInput * ver * jumpSpeed);
-            jetpack -= 1;
+                rb.AddForce(verInput * ver * jumpSpeed);
+                jetpack -= 1;
+            }
+
         }
         else
         {
