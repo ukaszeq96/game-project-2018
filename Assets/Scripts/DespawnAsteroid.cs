@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class DespawnAsteroid : MonoBehaviour {
-
+    private ParticleSystem ps;
+    private SpriteRenderer sr;
+    private Rigidbody2D rb;
 	// Use this for initialization
 	void Start () {
-		
+        ps = GetComponent<ParticleSystem>();
+        sr = GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
 	}
 	
 	// Update is called once per frame
@@ -15,6 +19,9 @@ public class DespawnAsteroid : MonoBehaviour {
 	}
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(this.gameObject);
+        ps.Play();
+        sr.enabled = false;
+        rb.simulated = false;
+        Destroy(gameObject,2);
     }
 }
