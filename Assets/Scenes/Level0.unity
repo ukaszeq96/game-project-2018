@@ -410,7 +410,7 @@ GameObject:
   - component: {fileID: 268367679}
   - component: {fileID: 268367680}
   m_Layer: 0
-  m_Name: AudioDeath
+  m_Name: AudioDamage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1752,6 +1752,11 @@ Prefab:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114268639345966946, guid: cf56274756d1edd4cbd7bf40b85c9603,
+        type: 2}
+      propertyPath: damage
+      value: 
+      objectReference: {fileID: 268367680}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cf56274756d1edd4cbd7bf40b85c9603, type: 2}
   m_IsPrefabParent: 0

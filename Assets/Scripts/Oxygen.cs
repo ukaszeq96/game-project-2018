@@ -13,6 +13,7 @@ public class Oxygen : MonoBehaviour
     public float wormDamage;
     public float asteroidDamage;
     public AudioSource refill;
+    public AudioSource damage;
     
     void Update()
     {
@@ -32,13 +33,19 @@ public class Oxygen : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Asteroid"))
+        {
             oxygenSlider.value -= asteroidDamage;
+            damage.Play();
+        }
 
     }
     void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.CompareTag("Worm"))
+        {
             oxygenSlider.value -= wormDamage;
+            damage.Play();
+        }
         if (collider.gameObject.name == "Spaceship")
             refill.Play();
     }
