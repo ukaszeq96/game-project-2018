@@ -1328,6 +1328,7 @@ MonoBehaviour:
   wormDamage: 15
   asteroidDamage: 10
   refill: {fileID: 0}
+  damage: {fileID: 0}
 --- !u!114 &114287106887374160
 MonoBehaviour:
   m_ObjectHideFlags: 1
