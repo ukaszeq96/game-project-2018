@@ -853,6 +853,24 @@ Transform:
   m_PrefabParentObject: {fileID: 4501883123500218, guid: d8edcd474b20aa249af99bcc11885415,
     type: 2}
   m_PrefabInternal: {fileID: 504002710}
+--- !u!1 &517865583 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1908436500010816, guid: 26d0a454176136a4d9b3ee4ae2de5886,
+    type: 2}
+  m_PrefabInternal: {fileID: 1336815894}
+--- !u!114 &517865584
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 517865583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e82d7e8bd1b798649b8a10058017f1c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  normalSize: 16
+  zoomedSize: 30
 --- !u!1 &525315952
 GameObject:
   m_ObjectHideFlags: 0
@@ -3082,7 +3100,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4853197448279488, guid: ec3bc8b80995a8f4682fe98704c86911, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 114703278055924046, guid: ec3bc8b80995a8f4682fe98704c86911,
         type: 2}
@@ -3532,7 +3550,7 @@ Prefab:
     - target: {fileID: 224795276750681586, guid: 813016c0ca011a6459e88dc112bc6dcd,
         type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 224795276750681586, guid: 813016c0ca011a6459e88dc112bc6dcd,
         type: 2}
@@ -3623,6 +3641,12 @@ Prefab:
         type: 2}
       propertyPath: m_Value
       value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 114260529513769468, guid: 813016c0ca011a6459e88dc112bc6dcd,
+        type: 2}
+      propertyPath: m_Text
+      value: "Press \u2190/\u2192 or A/D to move left or right\nSpace to jump, Shift
+        to zoom out\nEsc to pause"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 813016c0ca011a6459e88dc112bc6dcd, type: 2}
