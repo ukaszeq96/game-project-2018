@@ -4,6 +4,7 @@ using System.Collections;
 public class Worm : MonoBehaviour
 {
     public Vector3 pointB;
+    private Vector3 hiddenScale = new Vector3(1, 0.7f, 1);
 
     IEnumerator Start()
     {
@@ -11,13 +12,13 @@ public class Worm : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(2, 4));
-            yield return StartCoroutine(MoveObject(transform, pointA, pointB, 1));
+            yield return StartCoroutine(MoveObject(transform, pointA, pointB, 1,false));
             yield return new WaitForSeconds(Random.Range(2, 4));
-            yield return StartCoroutine(MoveObject(transform, pointB, pointA, 1));
+            yield return StartCoroutine(MoveObject(transform, pointB, pointA,1, true));
         }
     }
 
-    IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time)
+    IEnumerator MoveObject(Transform thisTransform, Vector3 startPos, Vector3 endPos, float time, bool grow)
     {
         float i = 0.0f;
         float rate = 1.0f / time;
@@ -25,6 +26,10 @@ public class Worm : MonoBehaviour
         {
             i += Time.deltaTime * rate;
             thisTransform.localPosition = Vector3.Lerp(startPos, endPos, i);
+            if (grow)
+                thisTransform.localScale = Vector3.Lerp(hiddenScale, Vector3.one, i);
+            else
+                thisTransform.localScale = Vector3.Lerp(Vector3.one, hiddenScale, i);
             yield return null;
         }
     }
