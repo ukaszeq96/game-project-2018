@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = horInput * hor * movementSpeed;
             //bool regenerateJetpack = jetpackRegenerateSlowdownFactor <= 0 || Time.frameCount % jetpackRegenerateSlowdownFactor == 0;
             if (jetpack < jetpackMax)
-                jetpack += 1;
+                jetpack += 2;
         }
         else if (verInput > 0 && jetpack > 0)
             rb.velocity = horInput * hor * movementSpeedJetpack;
